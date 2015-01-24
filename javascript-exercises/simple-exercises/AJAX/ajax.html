@@ -1,0 +1,28 @@
+<html>
+  <head>
+      <title>AJAX Sample</title>
+  </head>
+  <body>
+    <script>
+      var request = new XMLHttpRequest();
+      // Setting the XHR method, URL
+      request.open("GET", "http://cit261-api.herokuapp.com/api");
+  //request will run after you assign it
+      //request.onload = function()
+
+      request.onreadystatechange = function()
+      //runs everytime the readystate changes
+    {
+      if (request.readystate ==== 4)
+        //for popup box code: window.alert ("")
+    }
+    else
+      {
+        console.log ("No Response yet");
+      }
+    //{console.log(request);}used with previous problem (only if)
+
+    request.send();
+    </script>
+  </body>
+</html>

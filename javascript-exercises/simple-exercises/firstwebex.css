@@ -1,0 +1,47 @@
+h1
+{
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+#menu
+{
+  width: 900px;
+  height: 30px;
+  font-size: 18px;
+  font-family: arial;
+  font-weight: bold;
+  text-align: center;
+  background-color: pink;
+}
+
+#menu ul
+{
+  background-color: ;
+  font-size: 14px;
+  text-align: center;
+
+}
+
+#menu li
+{
+  display: inline;
+  float: left;
+}
+
+#content
+{
+  back-ground color: red;
+  border-radius: 80px;
+}
+
+#info
+{
+  font-family: times;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 8px;
+  float: center;
+}

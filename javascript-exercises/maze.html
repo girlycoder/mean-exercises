@@ -1,0 +1,46 @@
+<html>
+  <head
+  <title>Maze Run</title>
+  <link rel= "stylesheet" href= "css/style.css" type= "text/css" />
+  </head>
+
+
+
+  <body>
+
+    document.onkeydown = function(e)
+
+    {
+
+    keyCodeIsInRange = e.keyCode >= "37" && e.keyCode <= "40";
+      if(keyCodeIsInRange && turnNumber % redBlockFrequency == 0)
+      {
+        randomDanger();
+      }
+        e = e || window.event;
+
+      var block = document.getElementById("block");
+      var left = block.style.left;
+      var top = block.style.top;
+    }
+
+    <div id="cage">
+      <div id= "block" class= "square" style= "top:400px; left:300px" type= "End">
+      <div id= "block" class= "square" style "top:400px; left: 300px">
+    </div>
+    <div id= "end" class= "square" style= "top: 0px; left: 0px" type= "Player">
+    <div id= "end" class= "square" style= "top: 0px; left: 0px">
+    </div>
+  </div>
+  <div  id= "mainContain">
+
+
+    <script src= "js/lib.js"></script>
+    <script src= "js/player.js"</script>
+    <script src= "js/wall.js"</script>
+    <script src= "js/init.js"</script>
+    <script src= "js/statusCheck.js"</script>
+    <script src= "js/keyboard.js"</script>
+
+  </body>
+</html>

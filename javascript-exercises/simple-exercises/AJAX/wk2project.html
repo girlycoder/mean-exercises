@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>
+      Message App
+    </title>
+    <link href="wk2html.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <h1 id="test" style="color:purple;font-size:35px">Messages</h1>
+    <ol>
+      <li id = "0"></li>
+      <li id = "1"></li>
+      <li id = "2"></li>
+      <li id = "3"></li>
+      <li id = "4"></li>
+      <li id = "5"></li>
+      <li id = "6"></li>
+      <li id = "7"></li>
+
+    </ol>
+
+    <script>
+    var namesRequest = new XMLHttpRequest();
+    namesRequest.open('GET', 'http://increscent.org:9000/contacts');
+    var nameObjects = [];
+    var messageObjects = [];
+    var lineToPrint = [];
+
+    var messagesRequest = new XMLHttpRequest();
+    messagesRequest.open('GET', 'http://increscent.org:9000/messages');
+
+    var insertText = function()
+    {
+        for (var x = 0; x < lineToPrint.length; x++)
+        {
+           var theId = x.toString();
+           document.getElementById(theId).innerHTML = lineToPrint[x];
+        }
+    };
+
+    var messageCallback = function()
+    {
+      var data = JSON.parse(messagesRequest.response);
+      messageObjects = data;
+      console.log(messageObjects);
+      console.log(nameObjects);
+      for (var x = 0; x < nameObjects.length; x++)
+      {
+        for (var y = 0; y < messageObjects.length; y++)
+        {
+
+          if (nameObjects[x].id === messageObjects[y].user_id)
+          {
+            lineToPrint.push(nameObjects[x].name + ": " + messageObjects[y].text);
+          }
+        }
+      }
+
+      insertText();
+    };
+    var nameCallback = function()
+    {
+      var data = JSON.parse(namesRequest.response);
+      nameObjects = data;
+
+      messagesRequest.onload = messageCallback;
+      messagesRequest.send();
+    };
+
+    namesRequest.onload = nameCallback;
+    namesRequest.send();
+
+
+
+    </script>
+
+
+  </body>
+</html>
